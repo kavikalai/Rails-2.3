@@ -23,13 +23,4 @@ config.action_controller.perform_caching             = false
 #  ActionMailer::Base.raise_delivery_errors = true
 #  ActionMailer::Base.default_charset = "iso-8859-1"
 
-
-# ActionMailer::Base.smtp_settings = {
-#   :enable_starttls_auto => true,
-#   :address => "smtp.gmail.com",
-#   :port => 587,
-#   :domain => "gmail.com",
-#   :authentication => :plain,
-#   :user_name => "kavikalai110@gmail.com",
-#   :password => "89277737kavikalai!"
 # }
