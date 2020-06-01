@@ -1,0 +1,36 @@
+<body= "noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+<%if @users.present?%>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>User Name</th>
+        <th>Email Id</th>
+        <th>Designation</th>
+        <th>Contact No</th>        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%i=1%>
+      <%@users.each do |u|%>
+       <tr>
+        <td><%=i%></td>
+        <td><%=u.user_name%></td>
+        <td><%=u.email%></td>
+        <td><%=u.type%></td>
+        <td><%=u.contact_no%></td>
+        <td><%=link_to 'Edit',edit_user_users_path(:id=>u.id)%></td>
+        <td><%=link_to 'Delete', user_path(:id=>u.id),:method=>:delete,:confirm => 'Are you sure?'%></td>
+      </tr> 
+      <%i+=1%>
+      <%end%>     
+  </tbody>
+</table>
+<%else%>
+<%end%>
+</body>
+<script type="text/javascript">
+  window.history.forward();
+  function noBack() { window.history.forward(); }
+</script>

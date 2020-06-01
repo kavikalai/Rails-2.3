@@ -1,0 +1,73 @@
+<%if @current_user==@user%>
+ 
+	<%form_tag :action => 'update' do %>
+ 	<% form_for :user, @users do |f| %>
+     <div class="shadow-lg p-3 mb-5 bg-white rounded">
+     <table class="table bored">
+     	<center><div class="hh2">Profile</div></center>
+     <tr>
+     	<td style="width: 120px; border-top: none;">User Name:</td>
+     	<td style="border-top: none;"><%=f.text_field :user_name, :class=>"form-control", :disabled=>true%></td>
+     	  <%=f.hidden_field :user_name%>
+     	  <%=hidden_field_tag :id,@user.id%>
+     	  <%=f.hidden_field :email%>
+     </tr>
+     <tr>
+     	<td style="border-top: none;">Password</td>
+     	<td style="border-top: none;"><%=f.password_field :password, :class=>"form-control"%></td>
+     </tr>
+     <tr>
+     	<td style="border-top: none;">Contact No:</td>
+     	<td style="border-top: none;"><%=f.text_field :contact_no, :class=>"form-control"%></td>
+     </tr>
+     <tr>
+     	<td style="border-top: none;">Address:</td>
+     	<td style="border-top: none;"><%=f.text_area :address, :cols=>50, :rows=>4, :class=>"form-control"%></td>
+     </tr>
+     
+     <tr>
+          <td style="border-top: none;">Status</td>
+          <td style="border-top: none;"><select class="form-control" id="user_status" name="user[status]" value='#{user.status}'><option>Active</option><option>InActive</option></select></td>
+     </tr>
+     </table>
+ 	 <center><%=f.submit 'Update',:class=>'btn btn-primary'%></center>
+ 	<%end%>
+ 	<%end%>
+ </div>
+
+<%else%>
+ <div class="jumbotron">
+     <%form_tag :action => 'user_update' do %>
+     <% form_for :user, @users do |f| %>
+     <table class="table bored">
+          <center style="background: lightblue">Profile</center>
+     <tr>
+          <td style="width: 120px; border-top: none;">User Name:</td>
+          <td style="border-top: none;"><%=f.text_field :user_name, :class=>"form-control", :disabled=>true%></td>
+            <%=f.hidden_field :user_name%>
+            <%=hidden_field_tag :id,@user.id%>
+            <%=f.hidden_field :email%>
+     </tr>
+     <tr>
+          <td style="border-top: none;">Password</td>
+          <td style="border-top: none;"><%=f.password_field :password, :class=>"form-control"%></td>
+     </tr>
+     <tr>
+          <td style="border-top: none;">Contact No:</td>
+          <td style="border-top: none;"><%=f.text_field :contact_no, :class=>"form-control"%></td>
+     </tr>
+     <tr>
+          <td style="border-top: none;">Address:</td>
+          <td style="border-top: none;"><%=f.text_area :address, :cols=>50, :rows=>4, :class=>"form-control"%></td>
+     </tr>
+     
+     <tr>
+          <td style="border-top: none;">Status</td>
+          <td style="border-top: none;"><select class="form-control" id="user_status" name="user[status]" value='#{user.status}'><option>Active</option><option>InActive</option></select></td>
+     </tr>
+     </table>
+      <center><%=f.submit 'Update',:class=>'btn btn-primary'%></center>
+     <%end%>
+     <%end%>
+</div>
+<%end%>

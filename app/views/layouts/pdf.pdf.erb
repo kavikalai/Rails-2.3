@@ -1,0 +1,26 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style type="text/css">
+        	th, td {
+                    font-size: 16px;
+                    font-weight: bold;
+                    width:150px;
+                    padding:5px; 
+                    text-align: justify;
+                    word-spacing: 1px;
+                   }
+        </style>
+      </head>
+      <body onload='number_pages'>
+        <div id="header">
+          <%= wicked_pdf_image_tag 'logo.png',:style=>"width: 65px;" %>
+        </div>
+        <div id="content">
+          <%= yield %>
+        </div>
+      </body>
+    </html>

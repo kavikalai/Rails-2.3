@@ -1,0 +1,173 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+  
+}
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    color: red;
+}
+#page-content-wrapper {
+  min-width: 100vw;
+
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.bg-light {
+    background-color: #7394b7!important;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+ #menu-toggle {
+    border: none;
+    border-radius: 7px;
+}
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #7394b7!important;
+   color: black;
+   text-align: right;
+   height: 20px;
+   font-size: 13px;
+}
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 10px;
+}
+./*jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+    margin-right: 10px;
+}*/
+.mb-5, .my-5 {
+    margin-bottom: 3rem!important;
+    margin-right: 15px;
+}
+
+.hh2 {
+  text-shadow: 2px 2px 5px red;
+}
+
+.form-control {
+    display: block;
+    width: 60%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.custom-select {
+    display: inline-block;
+    width: 30%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;    
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e) no-repeat right .75rem center/8px 10px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+table {
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding-left: 10px;
+  padding-right: 10px;
+
+  font: 14px;
+  text-align: left;
+}
+
+/*To work only on Chrome and Safari*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  tr:hover td:first-child {
+    box-shadow: inset 0px 11px 8px -10px #337AB7, 
+      inset 0px -11px 8px -10px #337AB7, 
+      inset 11px 0px 8px -10px #337AB7;
+  }
+
+  tr:hover td {
+    box-shadow: inset 0px 11px 8px -10px #337AB7, 
+      inset 0px -11px 8px -10px #337AB7;
+  }
+
+  tr:hover td:last-child {
+    box-shadow: inset 0px 11px 8px -10px #337AB7, 
+      inset 0px -11px 8px -10px #337AB7, 
+      inset -11px 0px 8px -10px #337AB7;
+  }
+}
+
+/*To work on the others browsers*/
+tbody > tr:hover {
+  outline: none;
+  -webkit-box-shadow: inset 0 0 10px #337AB7;
+  box-shadow: inset 0 0 10px #337AB7;
+}

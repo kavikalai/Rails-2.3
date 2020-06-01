@@ -1,0 +1,23 @@
+        <label>Select Department :</label>
+	        <%=select_tag "department", options_from_collection_for_select(@departments, "id", "name"), :class=>"browser-default custom-select",:required => true%>
+        <%=submit_tag 'Search',:class=>"btn btn-primary",:onclick=>"search_appointment();"%>
+        <br />
+        <br />
+        <div id="appointment">
+        </div>
+
+        <script>
+        	function search_appointment() {
+        		var department_id = document.getElementById('department').value;
+        		$.ajax({
+                        type: "POST",
+                        url: '/users/department_wise_appointment',
+                        contentType: 'application/json',
+                        data: JSON.stringify({department_id: department_id , _method:'GET' }),
+                        success: function(response) {
+                        $('#appointment').html(response);		    
+                    },
+			    });
+        		// body...
+        	}
+        </script>

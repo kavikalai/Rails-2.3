@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Email Id</th>
+        <th>Contact No</th>        
+      </tr>
+    </thead>
+
+    <tbody>
+      <%@admins.each do |u|%>
+       <tr>
+        <td><%=u.user_name%></td>
+        <td><%=u.email%></td>
+        <td><%=u.contact_no%></td>
+        <td><%=link_to 'Edit',edit_user_users_path(:id=>u.id)%></td>
+        <td><%=link_to 'Delete', user_path(:id=>u.id),:method=>:delete,:confirm => 'Are you sure?'%></td>
+      </tr> 
+      <%end%>     
+  </tbody>
+</table>

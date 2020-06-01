@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/232765/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf
+END
+VERSION.yml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/202988/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf/VERSION.yml
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/202988/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf/Rakefile
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/202988/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf/README.md
+END
+wicked_pdf.gemspec
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/202988/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf/wicked_pdf.gemspec
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/202988/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf/MIT-LICENSE
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/202988/HC/Paras/branches/Paras4/China_CIMS/Trunk/Paras5/src/Paras/vendor/plugins/wicked_pdf/init.rb
+END

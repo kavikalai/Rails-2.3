@@ -1,0 +1,23 @@
+<%form_tag :action => 'create' do %>
+<%=render :partial=>"signin"%>
+<%end%>
+
+   <div class="bg">
+      <a><img src="/images/logo.png" height="38" alt="CoolBrand">Foradian</br></a>
+      <div class="container">
+        <div class="inside">
+          <%form_tag :action => 'login' do %>
+          <h3 style="color: green";>Login</h3>
+          <label>User Name</label><br />
+          <%=text_field_tag :user_name, '',:class=>"form-control",:required => true %><br />
+          <label>Password</label><br />
+          <%=password_field_tag :password, '',:class=>"form-control",:required => true%><br />
+          <br />
+          <%=submit_tag 'Login',:class=>"btn btn-success",:style=>"width: 65px; height: 40px;"%>
+          &nbsp&nbsp&nbsp
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalContactForm" style="width: 106px; height: 40px;">New User?</button>
+          <%end%>
+        </div>
+      </div>
+   </div>
+

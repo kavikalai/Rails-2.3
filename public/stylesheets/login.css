@@ -1,0 +1,63 @@
+  body, html {
+    height: 100%;
+  }
+  .bg {
+    /*background-image: url("https://artfiles.alphacoders.com/795/79561.jpg");/*url("https://www.wallpaperup.com/uploads/wallpapers/2016/11/06/1034042/37599cc6d066303a0fa1c1eaf20b0b92-700.jpg");*/
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  img {
+    vertical-align: middle;
+    border-style: none;
+    height: 100px;
+    width: 100px;
+    font-size: 15px;
+  }   
+
+  a{
+    color: #9f8051;
+    font-size: 40px;
+    font-style: italic;
+    font-family: fantasy;
+    font-variant: proportional-nums;
+   }
+   a:not([href]):not([tabindex]) {
+    color: green;
+    text-decoration: none;
+   }
+  .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: #03274ade;
+     color: black;
+     text-align: right;
+     height: 20px;
+     font-size: 13px;
+   }
+   .inside {
+    margin: 10px;
+    }
+   .container {
+     background: #ffffff;
+     margin-top:150px;
+     margin-left: 920px;
+     margin-right: 90px;
+     width: 28%;
+    /* border: 2px solid; */
+     }
+  /*input {
+    border: none;
+    background-color: none;
+    outline: 0;
+    font-size: 15px;
+    width: 300px;
+    height: 30px;
+    padding: 12px;
+    color: red;
+    border-radius: .25rem;
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+   }*/

@@ -1,0 +1,36 @@
+<%form_tag :action => 'create_department' do %>
+<div class="jumbotron">
+     <table class="table bored">
+     	<center style="background: lightblue">Create Department</center>
+     <tr>
+     	Department Name:
+     	<td style="border-top: none;"><%=text_field_tag :department,'', :class=>"form-control",:style=>"width: 30%", :required => true%></td>
+     </tr>
+     <tr>
+     <td><center><%=submit_tag 'Save',:class=>"btn btn-primary"%></center></td>
+     </tr>
+ </table>
+</div>
+<%end%>
+
+<table class="table bored">
+	 <thead>
+      <tr>
+      	<th>S.No</th>
+        <th>Name</th>
+        <th>Action</th>       
+      </tr>
+    </thead>
+
+    <tbody>
+      <%i=1%>
+      <%@departments.each do |u|%>
+       <tr>
+       	<td><%=i%></td>
+        <td><%=u.name%></td>
+        <td><%=link_to 'Delete', delete_department_users_path(:id=>u.id),:method=>:delete,:confirm => 'Are you sure?'%></td>
+      </tr> 
+      <%i+=1%>
+      <%end if @departments.present?%>     
+  </tbody>
+</table>

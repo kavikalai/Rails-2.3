@@ -1,0 +1,32 @@
+<div class="jumbotron">
+	<%form_tag :action => 'department_doctor' do %>
+	        <%=select_tag "department", options_from_collection_for_select(@departments, "id", "name"), :class=>"browser-default custom-select",:required => true%>
+            <%=select_tag "doctor", options_from_collection_for_select(@doctors, "id", "user_name"), :class=>"browser-default custom-select" , :required => true%>
+            <%=submit_tag 'Assign',:class=>"btn btn-primary"%>
+    <%end%>
+</div>
+<%if @doctors.present?%>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>S.No</td>
+			<td>Department Name</td>
+			<td>Doctor Name</td>
+		</tr>
+	</thead>
+	<%i=1%>
+	<%@doctors.select { |d| d.department_id.present?}.each do |doctor|%>
+		<tr>
+			<td><%=i%></td>
+			<td><%=doctor.department.name%></td>
+			<td><%=doctor.user_name%></td>
+		</tr>
+	<%end%>
+</table>
+<%else%>
+<div class="card">
+  <div class="card-body">
+    Department not assigned 
+  </div>
+</div>
+<%end%>

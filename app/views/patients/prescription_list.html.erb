@@ -1,0 +1,30 @@
+<%if @prescriptions.present?%>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>S.No</td>
+			<td>Patinet Name</td>
+			<td>Doctor Name</td>
+			<td>Appoitment Date</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<%i=1%>
+	<%@prescriptions.each do |pres|%>
+	   <tr>
+	   	    <td><%=i%></td>
+	   	    <td><%=pres.appointment.patient.user_name%></td>
+	   	    <td><%=pres.appointment.doctor.user_name%></td>
+	   	    <td><%=pres.appointment.appointment_data%></td>
+	   	    <td><%=link_to 'View',prescription_view_patients_path(:id=>pres.id)%></td>
+	   </tr>
+	   <%i+=1%>
+	<% end -%>
+</table>
+<%else%>
+<div class="card">
+  <div class="card-body">
+    Prescription is not there!
+  </div>
+</div>
+<%end%>

@@ -1,0 +1,33 @@
+<%if @appointments.present?%>
+  <table class="table table-striped">
+  	<thead>
+  		<tr>
+  			<td>S.No</td>
+  			<td>Appointment ID</td>
+  			<td>Appointment Data</td>
+  			<td>Doctor Name</td>
+  			<td>Doctor Contact No</td>
+  			<td>Patient Name</td>
+  			<td>Patient Contact No</td>
+  		</tr>
+  	</thead>
+  	<%@appointments.each_with_index do |app,i|%>
+  	    <tr>
+  	    	<td><%=i+1%></td>
+  	    	<td><%=app.appointment_id%></td>
+  	    	<td><%=app.appointment_data.strftime("%F")%></td>
+  	    	<td><%=app.doctor.user_name%></td>
+  	    	<td><%=app.doctor.contact_no%></td>
+  	    	<td><%=app.patient.user_name%></td>
+  	    	<td><%=app.patient.contact_no%></td>
+  	    </tr>
+  	<%end%>
+  </table><%form_tag genrate_csv_users_path(:id=>@appointments.collect(&:id)),:method=>:post  do %>
+  <center><%=submit_tag 'Export CSV',:class=>"btn btn-primary"%></center><%end%>
+<%else%>
+<div class="card">
+  <div class="card-body">
+    Appointments not there
+  </div>
+</div>
+<%end%>

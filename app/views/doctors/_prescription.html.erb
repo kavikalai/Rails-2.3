@@ -1,0 +1,28 @@
+<%if value.blank?%><%@prescription = Prescription.new%><%else%><%@prescription = value%><%end%>
+<% form_for :prescription, @prescription do |f| %>
+<div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h3>Prescription</h3> 
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      </div>
+     <div class="modal-body">
+        <div class="form-group">
+         <label>Test Recommeded</label>
+          <%=f.text_field :tests_recommended,:class=>"form-control",:style=>"width: 100%;"%>
+          <label>Medicines prescribed</label>
+          <%=f.text_field :medicines_prescribed,:class=>"form-control",:style=>"width: 100%;"%>
+          <label>Comments</label>
+          <%=f.text_field :comments,:class=>"form-control",:style=>"width: 100%;",:required => true%>
+          <lable>Followup schedule</lable>
+          <%=f.text_field :followup_schedule,:class=>"form-control",:style=>"width: 100%;"%>
+        </div>
+     </div>
+      <div class="modal-footer">
+           <%= f.submit "Save", :name=>nil, :class=>"btn btn-success" %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<%end%>

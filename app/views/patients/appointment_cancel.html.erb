@@ -1,0 +1,33 @@
+<%if @appointments.present?%>
+<table class="table table-striped">
+	<thead>
+	<tr>
+		<td>S.No</td>
+		<td>AppointmentID</td>
+		<td>Doctor Name</td>
+		<td>Appointment Date</td>
+		<td>Contact No</td>
+		<td></td>
+	</tr>
+	</thead>
+	<%if @appointments.present?%>
+	  <%i=1%>
+	  <%@appointments.each do |app|%>
+	  <tr>
+	  	<td><%=i=1%></td>
+	  	<td><%=app.appointment_id%></td>
+	  	<td><%=app.doctor.user_name%></td>
+	  	<td><%=app.appointment_data%></td>
+	  	<td><%=app.doctor.contact_no%></td>
+	  	<td><%=link_to 'Delete',patient_path(app.id),:method=>:delete%></td>
+	  	<%i+=1%>
+	  <%end%>
+	<%end%>
+</table>
+<%else%>
+<div class="card">
+  <div class="card-body">
+    Appointment not there!
+  </div>
+</div>
+<%end%>

@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <title>Foradian</title>
+        <link rel="icon" href="/images/logo.png" type="image/icon type">
+        <link rel="stylesheet" type="text/css" href="/boost/css/bootstrap.min.css">        
+        <link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css">
+        <script src="/boost/jquery.min.js"></script>
+        <script src="/boost/js/bootstrap.min.js"></script>
+</head>
+
+<body><div class="d-flex" id="wrapper">
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" style="background: #6a6abd;"><a><img src="/images/logo.png" height="38" alt="CoolBrand">Foradian</br></a></div>
+      <div class="list-group list-group-flush">
+        <%=link_to 'Profile',new_user_path(:id=>@current_user.id),:class=>"list-group-item list-group-item-action bg-light"%>
+        
+        <%if @current_user.type=="Admin"%>
+        <a href="/users" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="/users/admin_list" class="list-group-item list-group-item-action bg-light">Admin List</a>
+        <a href="/users/doctor_list" class="list-group-item list-group-item-action bg-light">Doctor List</a>
+        <%=link_to "Create Department", department_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
+        <%=link_to 'Assign Department',assign_department_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
+        <%=link_to 'Appoinment List',appointment_status_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
+        <%=link_to 'InActive Users',inactive_users_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
+        <%elsif @current_user.type=="Patient"%>
+        <%=link_to 'Book Appointement',new_patient_path,:class=>"list-group-item list-group-item-action bg-light"%>
+        <%=link_to 'View Presecription',prescription_list_patients_path,:class=>"list-group-item list-group-item-action bg-light"%>
+        <%=link_to 'Cancle Appointement',appointment_cancel_patients_path, :class=>"list-group-item list-group-item-action bg-light"%>
+       
+        <%elsif @current_user.type=="Doctor"%>
+        <%=link_to 'Add Presecription',new_doctor_path, :class=>"list-group-item list-group-item-action bg-light"%>
+        <%end%>
+      </div>
+    </div>
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="height: 67px;">
+        <button class="btn btn-primary" id="menu-toggle">Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item"><%=link_to 'Logout',logout_users_path,:style=>"color: red;"%></li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+      <% flash.each do |key, value| %>
+        <%= content_tag :key, value,:style=>"text-align: center; font-size: 12px; color: red;"%>
+      <% end %>
+      <%=yield%>  
+    </div>
+  </div>
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+<div class="footer">
+  <p> @2020kavikalai.All Right Reserved </p>
+</div>
+</html>

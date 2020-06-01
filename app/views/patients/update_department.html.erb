@@ -1,0 +1,9 @@
+<div class="jumbotron">
+    <table class="table">
+        <tr>
+     	    <td style="border-top: none; padding: 20px ">Doctor</td>
+          	<td><%=select_tag "doctor", options_from_collection_for_select(@doctors, "id", "user_name"), :class=>"browser-default custom-select" , :required => true%>
+         	</td>
+        </tr>
+    </table>
+</div>

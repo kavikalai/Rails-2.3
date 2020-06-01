@@ -1,0 +1,59 @@
+<script src="/datetime/js/jquery.min.js"></script>
+<script src="/datetime/js/jquery.datetimepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/datetime/css/jquery.datetimepicker.min.css"/>
+
+
+<%form_tag :action => 'find_appointment' do %>
+Search :<%=text_field_tag :datetimepicker, "",:class=>"form-control",:style=>"width: 30%;"%><br />
+<%=submit_tag 'Submit',:class=>"btn btn-primary",:onclick=>"findrecord();"%>
+<%end%>
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+        $('#datetimepicker').datetimepicker();  
+    });
+</script>
+
+<%if @appointments.present?%>
+<div class="continer">
+<table class="table table-striped">
+	<thead>
+	    <tr>
+		    <th>S.No</th>
+		    <th>Patient Name</th>
+		    <th>Email</th>
+		    <th>Contact No</th>
+		    <th>Appointment Date</th>
+		    <th>Prescription</th>
+	    </tr>
+	</thead>
+	
+	<%i=1%>
+	<%@appointments.each do |app|%>
+	    <tr>
+	    	<td><%=i%></td>
+            <td><%=app.patient.user_name%></td>
+            <td><%=app.patient.email%></td>
+            <td><%=app.patient.contact_no%></td>
+            <td><%=app.appointment_data.strftime("%F")%></td>
+            <td><a href="#" id="<%=app.id%>" data-toggle="modal" data-target="#approvalModal">Add</a></td>
+            <%form_tag doctors_path(:id=>app.id), :method=> :post do %>
+            <%=render :partial=>"prescription", :locals=> { :value=> app.prescription } %>
+            <%end%>
+            <td><%=link_to 'View',prescription_view_patients_path(:id=>app.prescription.id) if app.prescription.present?%></td>
+        </tr>
+        <%i+=1%>
+    <%end%>
+</table>
+</div>
+        <%form_tag appointment_csv_doctors_path(:id=>@appointments.collect(&:id)),:method=>:post do %>
+            <center><%=submit_tag 'Export CSV',:class=>"btn btn-primary"%></center>
+        <%end%>
+<%else%>
+<div class="card">
+  <div class="card-body">
+    Appointments not there!
+  </div>
+</div>
+<%end%>

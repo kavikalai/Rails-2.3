@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-md-4">
+		<h2>Foradian</h2>
+    </div>
+</div>
+<hr />
+<table style="width: 100%">
+	<tr>
+		<td style="width: 65%;">Doctor Name: <%=@prescription.appointment.doctor.user_name%></td>
+		<td style="width: 50%;">Patient Name: <%=@prescription.appointment.patient.user_name%></td>
+	</tr>
+	<tr>
+		<td>Contact No: <%=@prescription.appointment.doctor.contact_no%></td>
+		<td>Contact No: <%=@prescription.appointment.patient.contact_no%></td>
+	</tr>
+	<tr>
+		<td>Email Id:  <%=@prescription.appointment.doctor.email%></td>
+		<td>Email Id: <%=@prescription.appointment.patient.email%></td>
+	</tr>
+</table>
+
+<br />
+<br />
+<center><h4>Prescription</h4></center>
+
+<br />
+
+<table style="width: 100%; border-collapse:separate; border-spacing:0 30px;">
+     <tr>
+     	<td>Tests recommended</td>
+     	<td><%=@prescription.tests_recommended%></td>
+     </tr>
+     <tr>
+     	<td>Medicines prescribed</td>
+     	<td><%=@prescription.medicines_prescribed%></td>
+     </tr>
+     <tr>
+     	<td>Comments</td>
+     	<td><%=@prescription.comments%></td>
+     </tr>
+     <tr>
+     	<td>Followup schedule</td>
+     	<td><%=@prescription.followup_schedule%></td>
+     </tr>
+</table>
