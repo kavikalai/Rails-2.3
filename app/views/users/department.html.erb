@@ -1,18 +1,17 @@
 <%form_tag :action => 'create_department' do %>
-<div class="jumbotron">
-     <table class="table bored">
-     	<center style="background: lightblue">Create Department</center>
-     <tr>
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
+  <table class="table bored">
+    <center ><div class="hh2">Create Department</div></center>
+    <tr>
      	Department Name:
-     	<td style="border-top: none;"><%=text_field_tag :department,'', :class=>"form-control",:style=>"width: 30%", :required => true%></td>
-     </tr>
-     <tr>
-     <td><center><%=submit_tag 'Save',:class=>"btn btn-primary"%></center></td>
-     </tr>
+     	  <td style="border-top: none;"><%=text_field_tag :department,'', :class=>"form-control",:style=>"width: 30%", :required => true%></td>
+    </tr>   
  </table>
+ <center><%=submit_tag 'Save',:class=>"btn btn-primary"%></center>
 </div>
-<%end%>
+<%end%> 
 
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
 <table class="table bored">
 	 <thead>
       <tr>
@@ -34,3 +33,4 @@
       <%end if @departments.present?%>     
   </tbody>
 </table>
+</div>

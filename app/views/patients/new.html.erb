@@ -1,9 +1,9 @@
 
- <div class="jumbotron">
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
  	<%form_tag :action => 'book_appointment' do %>
  	
     <table class="table bored">
-     	<center style="background: lightblue">Appointment</center>
+     	<center><div class="hh2">Appointment</div></center>
      <tr>
      	<td style="width: 120px; border-top: none; padding: 20px;">Department</td>
      	<td style="border-top: none; "><%=select_tag "department", options_from_collection_for_select(@departments, "id", "name"), :onclick=>"update_doctor();",:class=>"browser-default custom-select",:required => true%>
@@ -11,19 +11,16 @@
      </tr>
      <tr>
      	<td style="border-top: none; padding: 20px ">Doctor</td>
-     	<td><%=select_tag "doctor", options_from_collection_for_select(@doctors, "id", "user_name"), :class=>"browser-default custom-select" , :required => true%>
+     	<td style="border-top: none;"><%=select_tag "doctor", options_from_collection_for_select(@doctors, "id", "user_name"), :class=>"browser-default custom-select" , :required => true%>
      	</td>
      </tr>
      <tr>
      	<td style="border-top: none;">Select Date</td>
-     	<td><input type="text" class='tinytext' id="datepicker" name='time_from'></td>
+     	<td style="border-top: none;"><input type="text" class='tinytext' id="datepicker" name='time_from'></td>
      </tr>
  </table>
- <table class="table">
-     <tr>
-     	<td><center><%=submit_tag 'Book Appointment',:class=>"btn btn-primary"%></center></td>
-     </tr>
-    </table>
+ 
+     	<center><%=submit_tag 'Book Appointment',:class=>"btn btn-primary"%></center>
     <%end%>
 </div> 
 

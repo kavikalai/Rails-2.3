@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
 	<%form_tag :action => 'department_doctor' do %>
 	        <%=select_tag "department", options_from_collection_for_select(@departments, "id", "name"), :class=>"browser-default custom-select",:required => true%>
             <%=select_tag "doctor", options_from_collection_for_select(@doctors, "id", "user_name"), :class=>"browser-default custom-select" , :required => true%>
@@ -6,6 +6,7 @@
     <%end%>
 </div>
 <%if @doctors.present?%>
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -23,6 +24,7 @@
 		</tr>
 	<%end%>
 </table>
+</div>
 <%else%>
 <div class="card">
   <div class="card-body">

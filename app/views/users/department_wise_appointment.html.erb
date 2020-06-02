@@ -1,4 +1,5 @@
 <%if @appointments.present?%>
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
   <table class="table table-striped">
   	<thead>
   		<tr>
@@ -22,7 +23,7 @@
   	    	<td><%=app.patient.contact_no%></td>
   	    </tr>
   	<%end%>
-  </table><%form_tag genrate_csv_users_path(:id=>@appointments.collect(&:id)),:method=>:post  do %>
+  </table></div><%form_tag genrate_csv_users_path(:id=>@appointments.collect(&:id)),:method=>:post  do %>
   <center><%=submit_tag 'Export CSV',:class=>"btn btn-primary"%></center><%end%>
 <%else%>
 <div class="card">

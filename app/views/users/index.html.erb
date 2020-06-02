@@ -1,5 +1,6 @@
 <body= "noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
 <%if @users.present?%>
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -27,6 +28,7 @@
       <%end%>     
   </tbody>
 </table>
+</div>
 <%else%>
 <%end%>
 </body>
