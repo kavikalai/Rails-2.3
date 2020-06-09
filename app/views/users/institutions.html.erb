@@ -1,0 +1,40 @@
+
+<%form_for :upload, @institution,:url=>uploads_users_path, :method=>:post,:html => { :multipart => true } do |f| %>
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
+Upload:
+<form>
+  <div class="form-group">
+    <%=f.file_field :image,:class=>"form-control-file",:required => true%>
+  </div>
+</form>
+<br />
+Insitution Name:<%=f.text_field :insititution_name,:class=>"form-control",:style=>"width: 40%;",:required => true%>
+<center><%=f.submit 'save',:class=>"btn btn-primary"%></center>
+</div>
+<% end %>
+
+
+<%if @institutions.present?%>
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>S.No</th>
+			    <th>Name</th>
+		     	<th>Image</th>
+		     </tr>
+		</thead>
+        
+        <%i=1%>
+        <%@institutions.each do |ins|%>
+            <tr>
+            	<td><%=i%></td>
+            	<td><%=ins.insititution_name%></td>
+            	<td><a href="<%=ins.file_path%>" target=_blank><p>Logo</p></a></td>
+            </tr>
+            <%i+=1%>
+        <% end %>
+    </table>
+</div>
+<% end %>

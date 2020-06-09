@@ -24,12 +24,11 @@ class UsersController < ApplicationController
     def login
     	@user=User.find_by_user_name_and_password_and_status(params[:user_name],params[:password],true)
     	if @user.present?
-    	   puts @user.type
     	   session[:current_user] =@user
            redirect_to '/users', :method => :get
         else
-        	flash[:message]="user name or password is wrong"
-        	redirect_to '/'
+           flash[:message]="user name or password is wrong"
+           redirect_to '/'
         end
     end
 
@@ -165,5 +164,22 @@ class UsersController < ApplicationController
 
     def genrate_csv
         @csv = genrate_csv_file(params[:id])   
+    end
+
+    def institutions
+        @institution = Insititution.new
+        @institutions = Insititution.all
+        render :layout=>"main"
+    end
+
+    def uploads
+        @institution = Insititution.new(params[:upload])
+        if @institution.save!
+            redirect_to '/users'
+            flash[:notice]="Insitution Changed Sucessfully"
+        else
+            redirect_to 'users/institutions'
+            flash[:notice]="institution not Changed"
+        end
     end
 end

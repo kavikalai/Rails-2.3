@@ -2,8 +2,10 @@
 <%=render :partial=>"signin"%>
 <%end%>
 
-   <div class="bg">
-      <a><img src="/images/logo.png" height="38" alt="CoolBrand">Foradian</br></a>
+  <div class="bg">
+      <%if !insititution[0].nil?%>
+      <a><img src="<%=insititution[1]%>" height="38" alt="CoolBrand"><%=insititution[0]%></br></a>
+      <% end %>
       <div class="container">
         <div class="inside">
           <%form_tag :action => 'login' do %>
@@ -19,5 +21,4 @@
           <%end%>
         </div>
       </div>
-   </div>
-
+  </div>

@@ -1,3 +1,10 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+
+	def insititution
+		insititution = Insititution.last
+		name = insititution.try(:insititution_name)
+		image = insititution.try(:file_path)
+		return [name,image]
+	end
+	
 end

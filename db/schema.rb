@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20200525052550) do
+ActiveRecord::Schema.define(:version => 20200602102046) do
 
   create_table "appointments", :force => true do |t|
     t.string   "appointment_id"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(:version => 20200525052550) do
     t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "insititutions", :force => true do |t|
+    t.string   "file_path"
+    t.string   "insititution_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "prescriptions", :force => true do |t|

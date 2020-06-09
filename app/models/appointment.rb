@@ -5,6 +5,7 @@ class Appointment < ActiveRecord::Base
     
 	validates_presence_of :doctor_id, :patient_id, :appointment_data, :appointment_id
     validates_uniqueness_of :appointment_id
+    
     after_save :send_notification
 
     named_scope :active, :conditions => ['status = ?', true] 
@@ -45,6 +46,6 @@ class Appointment < ActiveRecord::Base
     end
 
 	def send_notification
-		UserMailer.deliver_appointment_mail(self)
+		UserMailer.delay.deliver_appointment_mail(self)
 	end
 end

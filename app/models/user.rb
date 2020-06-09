@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   
   
   def send_mail_notification
-    UserMailer.deliver_sending_mail(self)
+    UserMailer.delay.deliver_sending_mail(self)
   end
 
   def upcase_fields

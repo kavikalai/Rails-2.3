@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => "users", :action => 'signin' 
-  map.resources :users, :collection => { :login => :post, :signin => :get, :logout => :get, :edit_user => :get, :admin_list=> :get, :doctor_list=> :get, :department=> :get, :assign_department=> :get, :create_department=> :post, :delete_department=> :delete, :department_doctor=> :put, :appointment_status=>:get, :inactive_users=>:get, :genrate_csv=> :post }
+  map.resources :users, :collection => { :login => :post, :signin => :get, :logout => :get, :edit_user => :get, :admin_list=> :get, :doctor_list=> :get, :department=> :get, :assign_department=> :get, :create_department=> :post, :delete_department=> :delete, :department_doctor=> :put, :appointment_status=>:get, :inactive_users=>:get, :genrate_csv=> :post, :institutions=>:get, :uploads=>:post }
   map.resources :patients, :collection => { :update_department => :get, :book_appointment=> :post,:appointment_cancel=>:get, :prescription_list=>:get,:prescription_view=>:get}
   map.resources :doctors, :collection => {:appointment_csv => :post, :find_appointment=> :get}
   # The priority is based upon order of creation: first created -> highest priority.

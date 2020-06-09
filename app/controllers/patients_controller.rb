@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
-   before_filter :authenticate_user!
-   before_filter :rand_name, :only=>[:book_appointment]
+  before_filter :authenticate_user!
+  before_filter :rand_name, :only=>[:book_appointment]
     
     def new
    	    @doctors = Doctor.all

@@ -2,17 +2,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- <title>Foradian</title>
-        <link rel="icon" href="/images/logo.png" type="image/icon type">
+<title><%=insititution[0]%></title>
+<link rel="icon" href="<%=insititution[1]%>" type="image/icon type">
         <link rel="stylesheet" type="text/css" href="/boost/css/bootstrap.min.css">        
         <link rel="stylesheet" type="text/css" href="/stylesheets/simple-sidebar.css">
         <script src="/boost/jquery.min.js"></script>
         <script src="/boost/js/bootstrap.min.js"></script>
+        
 </head>
 
 <body><div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading" style="background: #6a6abd;"><a><img src="/images/logo.png" height="38" alt="CoolBrand">Foradian</br></a></div>
+      <div class="sidebar-heading" style="background: #6a6abd;">
+      <%if !insititution[0].nil?%>
+      <a><img src="<%=insititution[1]%>" height="38" alt="CoolBrand"><%=insititution[0]%></br></a><%end%>
+      </div>
       <div class="list-group list-group-flush">
         <%=link_to 'Profile',new_user_path(:id=>@current_user.id),:class=>"list-group-item list-group-item-action bg-light"%>
         
@@ -23,6 +27,7 @@
         <%=link_to "Create Department", department_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
         <%=link_to 'Assign Department',assign_department_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
         <%=link_to 'Appoinment List',appointment_status_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
+         <%=link_to 'Institution Setting',institutions_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
         <%=link_to 'InActive Users',inactive_users_users_path, :class=>"list-group-item list-group-item-action bg-light"%>
         <%elsif @current_user.type=="Patient"%>
         <%=link_to 'Book Appointement',new_patient_path,:class=>"list-group-item list-group-item-action bg-light"%>
