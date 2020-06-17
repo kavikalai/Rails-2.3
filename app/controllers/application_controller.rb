@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_filter :set_cache_buster
+
   helper :all 
   protect_from_forgery 
   require 'fastercsv'
@@ -9,6 +11,12 @@ class ApplicationController < ActionController::Base
       if @current_user.blank? 
         redirect_to '/'
       end
+  end
+
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
   def find_path
@@ -45,5 +53,4 @@ class ApplicationController < ActionController::Base
         end
       send_data(csv_string, :type => 'text/csv; charset=utf-8; header=present', :filename => @filename)
   end
-
 end

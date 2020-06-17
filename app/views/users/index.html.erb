@@ -1,4 +1,5 @@
-<body= "noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+<!-- <body= "noBack();" onpageshow="if (event.persisted) noBack();" onunload=""> -->
+<body>
 <%if @users.present?%>
 <div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
 <table class="table table-striped">
@@ -32,7 +33,3 @@
 <%else%>
 <%end%>
 </body>
-<script type="text/javascript">
-  window.history.forward();
-  function noBack() { window.history.forward(); }
-</script>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    #filter_resource_access
     before_filter :authenticate_user!, :except => [:login, :create, :signin]
     before_filter :find_user, :only=>[:new, :user_update, :destroy, :edit_user]
     before_filter :find_path, :only=>[:signin]
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
 
     def logout
         session.clear
+        Rails.cache.clear
         redirect_to '/'    	
     end
 
