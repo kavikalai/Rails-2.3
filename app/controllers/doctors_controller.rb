@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
 	before_filter :authenticate_user!
-    
+  filter_access_to
 	def new
       @appointments = @current_user.appointments.active.all(:include => :patient)
 		  render :layout=>"main"

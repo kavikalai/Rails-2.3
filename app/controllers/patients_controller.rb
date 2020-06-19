@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :rand_name, :only=>[:book_appointment]
-    
+  filter_access_to
     def new
    	    @doctors = Doctor.all
    	    @departments = Department.all
@@ -55,8 +55,7 @@ class PatientsController < ApplicationController
         format.pdf  do 
           render :pdf =>  "prescription_view.html.erb",:background=> false, :layout=>'pdf',:encoding=>'TEXT',:orientation=> 'Portrait',
           :page_size=>'A4',:show_as_html=>params.key?('debug'),:disposition=> "inline",
-          :footer => { :right => '@2020.kavikalai.All Right Reserved' }
-          
+          :footer => { :right => '@2020.kavikalai.All Right Reserved' }         
         end
       end      
     end

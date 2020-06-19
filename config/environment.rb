@@ -32,6 +32,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
     config.gem "paperclip"
+    config.gem "declarative_authorization"
   # config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
 
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"

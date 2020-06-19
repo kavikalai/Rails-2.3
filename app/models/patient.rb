@@ -1,5 +1,4 @@
 class Patient < User
-   validates_uniqueness_of :user_name, :email, :message=>"Validation faild"
    has_many :appointments,:dependent=> :destroy
    
 def self.create_patient(user)

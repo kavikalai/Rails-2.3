@@ -6,15 +6,10 @@
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
   :key         => '_new_session',
-  :secret      => '6118def370bd1690c6343a0311e44d8fa2e37885535d71edf52dceeefaec418043985d4f4891f89155b98524fa31c1b99e1ce45dcd8015c9aa51dcaadfa5e58a', 
-  :cookies => 'delete',
+  :secret      => '6118def370bd1690c6343a0311e44d8fa2e37885535d71edf52dceeefaec418043985d4f4891f89155b98524fa31c1b99e1ce45dcd8015c9aa51dcaadfa5e58a',
   :key => '_new_session',
   :expire_after=> nil
 }
-
-#Rails.application.config.session_store => 'cookie_store', :key=> '_app_session', :expire_after=> nil
-#YourApp::Application.config.secret_token = '49d3f3de9ed86c74b94ad6bd0...'
-#Rails::Application.
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rake db:sessions:create")

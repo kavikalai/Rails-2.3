@@ -34,4 +34,10 @@ class User < ActiveRecord::Base
         return nil
       end
   end
+
+  def role_symbols
+    ['Admin','Patient','Doctor'].map do |role|
+      a=role.underscore.to_sym
+    end
+  end
 end

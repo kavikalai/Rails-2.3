@@ -1,4 +1,6 @@
-
+<script src="/datetime/js/jquery.min.js"></script>
+<script src="/datetime/js/jquery.datetimepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/datetime/css/jquery.datetimepicker.min.css"/>
 <div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
  	<%form_tag :action => 'book_appointment' do %>
  	
@@ -16,7 +18,8 @@
      </tr>
      <tr>
      	<td style="border-top: none;">Select Date</td>
-     	<td style="border-top: none;"><input type="text" class='tinytext' id="datepicker" name='time_from'></td>
+     	<td style="border-top: none;">
+      <%=text_field_tag :time_from, "",:class=>"form-control",:style=>"width: 30%;"%></td>
      </tr>
  </table>
  
@@ -25,6 +28,9 @@
 </div> 
 
 <script type="text/javascript">
+   $(document).ready(function () {
+        $('#time_from').datetimepicker();  
+      });
 	function update_doctor() {
 		var dep = document.getElementById('department').value;
 		$.ajax({
@@ -37,6 +43,7 @@
                 },
 			  });
 	}
+       
 	$(function () {
 
         $("#datepicker").datepicker({

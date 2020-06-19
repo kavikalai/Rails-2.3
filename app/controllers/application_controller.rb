@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :set_cache_buster
-
+   
   helper :all 
   protect_from_forgery 
   require 'fastercsv'
@@ -8,9 +8,14 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
   		@current_user = session[:current_user]
-      if @current_user.blank? 
+      Authorization.current_user = @current_user
+      if @current_user.blank?
         redirect_to '/'
       end
+  end
+
+  def current_user
+    current_user = session[:current_user]
   end
 
   def set_cache_buster
@@ -52,5 +57,12 @@ class ApplicationController < ActionController::Base
           @filename = "AppointmentList-#{Time.now.to_date.to_s}.csv"
         end
       send_data(csv_string, :type => 'text/csv; charset=utf-8; header=present', :filename => @filename)
+  end
+  
+  protected
+
+  def permission_denied
+    
+    render :file => "#{Rails.root}/public/109.html", :layout=> false
   end
 end

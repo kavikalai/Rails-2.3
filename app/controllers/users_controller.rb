@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    #filter_resource_access
     before_filter :authenticate_user!, :except => [:login, :create, :signin]
     before_filter :find_user, :only=>[:new, :user_update, :destroy, :edit_user]
     before_filter :find_path, :only=>[:signin]
-    
+    filter_access_to  :all
+
     def signin
     	@user = User.new
     	render :layout=> "login"
