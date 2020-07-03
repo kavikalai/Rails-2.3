@@ -1,4 +1,5 @@
 class Admin  < User
+ 
 
   def self.create_admin(user)
     admin = self.new(user)

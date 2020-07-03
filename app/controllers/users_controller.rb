@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_filter :authenticate_user!, :except => [:login, :create, :signin]
-    before_filter :find_user, :only=>[:new, :user_update, :destroy, :edit_user]
+    before_filter :find_user, :only=>[:new, :destroy, :user_update, :edit_user]
     before_filter :find_path, :only=>[:signin]
     filter_access_to  :all
 
@@ -47,11 +47,12 @@ class UsersController < ApplicationController
 
     def new        	
         render :layout=>"main"
+        @user = User.new
     end
 
     def update
         status = params[:user][:status]=='Active' ? true : false
-    	@current_user.update_attributes(:password=>params[:user][:password],:contact_no=>params[:user][:contact_no],:address=>params[:user][:address],:status=>status)
+        @current_user = User.profile_update(@current_user,status,params[:user])
         if @current_user.present? and @current_user.status==true
     		redirect_to '/users'
     		flash[:notice]="Updated sucessfully"
@@ -66,7 +67,8 @@ class UsersController < ApplicationController
 
     def user_update
         status = params[:user][:status]=='Active' ? true : false
-        if @user.update_attributes(:password=>params[:user][:password],:contact_no=>params[:user][:contact_no],:address=>params[:user][:address],:status=>status)
+        @user = User.profile_update(@user,status,params[:user])
+        if @user.present?
             redirect_to '/users'
             flash[:notice]="Updated sucessfully"
         else

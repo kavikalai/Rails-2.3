@@ -1,9 +1,87 @@
 <%if @current_user==@user%>
-	<%form_tag :action => 'update' do %>
- 	     <%=render :partial=>"profile"%>
- 	<%end%>
+ 	    <div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
+ 	    <%form_for :user, @user,:url=>'update', :method=>:put,:html => { :multipart => true } do |f| %>
+ 	    	<table class="table bored">
+ 	    		<center><div class="hh2">Profile</div></center>
+ 	    		<div class="card">
+ 	    			<%avatar=profile_image(@user)%>
+ 	    			<div class="card-body"><img src="<%=avatar%>" id="output" width="250px" height="250px" /></div> 
+ 	    			<div class="card-footer"><%=f.file_field :avatar, :id=>"file",:onchange=>"loadFile(event);"%></div>
+ 	    		</div>
+ 	    		<tr>
+ 	    			<td style="width: 120px; border-top: none;">User Name:</td>
+ 	    			<td style="border-top: none;"><%=f.text_field :user_name, :class=>"form-control", :disabled=>true%></td>
+ 	    			<%=f.hidden_field :user_name%>
+ 	    			<%=hidden_field_tag :id,@user.id%>
+ 	    			<%=f.hidden_field :email%>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Password</td>
+ 	    			<td style="border-top: none;"><%=f.password_field :password, :class=>"form-control"%></td>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Contact No:</td>
+ 	    			<td style="border-top: none;"><%=f.text_field :contact_no, :class=>"form-control"%></td>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Address:</td>
+ 	    			<td style="border-top: none;"><%=f.text_area :address, :cols=>50, :rows=>4, :class=>"form-control"%></td>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Status</td>
+ 	    			<td style="border-top: none;"><select class="form-control" id="user_status" name="user[status]" value='#{user.status}'><option>Active</option><option>InActive</option></select></td>
+ 	    		</tr>
+ 	    	</table>
+ 	    <center><%=f.submit 'Update',:class=>'btn btn-primary'%></center>
+ 	    </div>
+ 	    
+    <%end%>
+
 <%else%>
-     <%form_tag :action => 'user_update' do %>
-          <%=render :partial=>"profile"%>
-     <%end%>
+     
+    
+        <div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-right: 15px;">
+        <%form_for :user, @user,:url=>'user_update', :method=>:put,:html => { :multipart => true } do |f| %>
+ 	    	<table class="table bored">
+ 	    		<center><div class="hh2">Profile</div></center>
+ 	    		<%avatar=profile_image(@user)%>
+ 	    		<div class="card">
+ 	    			<div class="card-body"><img src="<%=avatar%>" id="output" width="100%" /></div>
+ 	    			<div class="card-footer"><%=f.file_field :avatar, :id=>"file", :onchange=>"loadFile(event);"%></div>
+ 	    		</div>
+ 	    		<tr>
+ 	    			<td style="width: 120px; border-top: none;">User Name:</td>
+ 	    			<td style="border-top: none;"><%=f.text_field :user_name, :class=>"form-control", :disabled=>true%></td>
+ 	    			<%=f.hidden_field :user_name%>
+ 	    			<%=hidden_field_tag :id,@user.id%>
+ 	    			<%=f.hidden_field :email%>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Password</td>
+ 	    			<td style="border-top: none;"><%=f.password_field :password, :class=>"form-control"%></td>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Contact No:</td>
+ 	    			<td style="border-top: none;"><%=f.text_field :contact_no, :class=>"form-control"%></td>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Address:</td>
+ 	    			<td style="border-top: none;"><%=f.text_area :address, :cols=>50, :rows=>4, :class=>"form-control"%></td>
+ 	    		</tr>
+ 	    		<tr>
+ 	    			<td style="border-top: none;">Status</td>
+ 	    			<td style="border-top: none;"><select class="form-control" id="user_status" name="user[status]" value='#{user.status}'><option>Active</option><option>InActive</option></select></td>
+ 	    		</tr>
+ 	    	</table>
+ 	    	<center><%=f.submit 'Update',:class=>'btn btn-primary'%></center>
+ 	    </div>
+ 	    
+    <%end%>
 <%end%>
+
+<script type="text/javascript">
+     var loadFile = function(event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+</script>

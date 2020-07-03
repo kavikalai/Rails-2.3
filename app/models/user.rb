@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   before_save :upcase_fields
   validates_length_of :password, :minimum=> 6, :if=> Proc.new { |user| user.password.present? }
 
- 
+  attr_accessible :avatar
+  has_attached_file :avatar
+  #validates_attachment_content_type :avatar
  
   ###################Call Backs#######################################
   after_create :send_mail_notification
@@ -35,9 +37,24 @@ class User < ActiveRecord::Base
       end
   end
 
+  def self.profile_update(user,status,params)
+     user.avatar = params[:avatar]
+     user.email = params[:email]
+     user.password = params[:password]
+     user.contact_no = params[:contact_no]
+     user.status = status
+     user.avatar_path = "/system/avatars/#{user.id}/original/#{user.avatar_file_name}"
+     if user.save!
+      return user
+    else
+      return nil
+    end
+  end
+
   def role_symbols
     ['Admin','Patient','Doctor'].map do |role|
       a=role.underscore.to_sym
     end
   end
+
 end
